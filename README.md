@@ -18,7 +18,7 @@ Links d'interès (development):
 
 **INTENTS**
 
-Els intents estan fets amb gramàtiques regulars (regexp), en castellà. Tot i això, fent servir el google traductor, l'assistent hauria de ser funcional amb multiples idiomes: de moment català, castellà i anglès.
+Els intents estan fets amb gramàtiques regulars (regexp), en castellà. Tot i això, fent servir el google traductor, l'assistent hauria de ser funcional en múltiples idiomes: de moment català, castellà i anglès.
 
 **FUNCIONALITATS**
 
