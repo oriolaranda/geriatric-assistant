@@ -20,6 +20,8 @@ Links d'interès (development):
 
 Els intents estan fets amb gramàtiques regulars (regexp), en castellà. Tot i això, fent servir el google traductor, l'assistent hauria de ser funcional en múltiples idiomes: de moment català, castellà i anglès.
 
+
+
 **FUNCIONALITATS**
 
 Estan agrupades per families.
