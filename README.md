@@ -1,5 +1,5 @@
 # geriatric-assistant
-Geriatric Assistant: A personal intelligent virtual assistant for old people.
+Geriatric Assistant: An intelligent personal virtual assistant for elderly people.
 Using NLP for creating the chatbot.
 
 Links d'interès (development):
@@ -17,13 +17,27 @@ Links d'interès (development):
 
 
 **INTENTS**
+Els intents estan fets amb gramàtiques regulars (regexp), en castellà. Tot i això, fent servir el google traductor, l'assistent hauria de ser funcional amb multiples idiomes: de moment català, castellà i anglès.
 
-De moment està fet en castellà.
-    No he fet servir accents, i a més fa el reconeixement del text
-    previament passat a minuscules per tant és case insensitive.
-    Estan dividits per dominis (no són definitius, depèn de les funcionalitats finals)
+**FUNCIONALITATS**
+Estan agrupades per families.
+
+    FAM = PRESENTACION (frases d'informació general de l'usuari, previsiblement
+                        necessaries només en una fase de primer o primers contactes)
     
-    DOM = GENERAL (preguntes relecionades amb informació o tracte amb el bot)
+    - NOM: ej. Me llamo Juan
+    - AÑOS: ej. Tengo 90 años
+    - SEXO: ej. Soy un hombre
+    - LENGUA: ej. Hablo en castellano
+    ...
+    
+    FAM = PREGUNTAS (Preguntes que fa el xatbot a l'usuari abans que aquest realitzi 
+                     l'acció que volia)
+    - PREGUNTA SALUD: ej. Bot: ¿Cómo te encuentras?
+    - PREGUNTA INFO: ej. Bot: ¿Qué te pareció tu nuevo cuidador?
+
+
+    FAM = GENERAL (preguntes relecionades amb informació o tracte amb el bot)
     
     - COMO TE LLAMAS: ej. ¿como te llamas?
     - SALUDO: ej. Buenos dias
@@ -32,53 +46,57 @@ De moment està fet en castellà.
     - CUANTOS AÑOS: ej. ¿cuantos años tienes?
     - REPETIR: ej. ¿perdona, podrías repetirlo?
     
-    DOM = PRESENTACION (frases d'informació general de l'usuari, previsiblement
-                        necessaries només en una fase de primer o primers contactes.
-                        Possiblement també preguntes per fer de tant en tant i anar
-                        obtenint més informació personal seva, ej. fills,etc.)
     
-    - NOM: ej. me llamo Oriol
-    - AÑOS: ej. tengo 22 años
-    
-    
-    DOM = ESTADO SALUD (frases d'informació sobre l'estat de salut de l'usuari
+    FAM = ESTADO SALUD (frases d'informació sobre l'estat de salut de l'usuari
                         un dels dominis prioritaris)
     
-    - ESTADO SALUD BIEN: ej. estoy muy bien
-    - ESTADO SALUD MAL: ej. estoy un poco triste
+    - ESTADO SALUD BIEN: ej. Estoy muy bien
+    - ESTADO SALUD MAL: ej. Estoy un poco triste
     
-    DOM = ENTRETENIMIENTO (preguntes, frases per activar funcions per entretenir a
+    
+    FAM = ENTRETENIMIENTO (preguntes, frases per activar funcions per entretenir a
                            l'usuari. Totes les funcions tindran un exemple com a minim
                            per a poder provar-la)
     
-    - PREG ENTRETENER: ej. ¿puedes contarme algo?
-    - CONTAR ADIVINANZA: ej. ¿podrias leerme una adivinanza?
-    - CONTAR CUENTO: ej. me gustaria que me leyeras una narracion
-    - CONTAR CHISTE: ej. cuentame un chiste
-    - ESCUCHAR CANCION: ej. ponme una cancion de Los Rolling Stones
-    - JUGAR: ej. ¿jugamos a algo?
+    - PREG ENTRETENER: ej. ¿Puedes contarme algo?
+    - CONTAR ADIVINANZA: ej. ¿Podrias leerme una adivinanza?
+    - CONTAR CUENTO: ej. Me gustaria que me leyeras una narracion
+    - CONTAR CHISTE: ej. Cuentame un chiste
+    - ESCUCHAR CANCION: ej. Ponme una cancion de Los Rolling Stones
+    - JUEGO DE MEMORIA: ej. ¿Jugamos a algo?
     
     
-    DOM = DIARIA (preguntes sobre informació diària. i.e hora, dia, temps, etc)
+    FAM = DIARIA (preguntes sobre informació diària. i.e hora, dia, temps, etc)
     
-    - DIA: ej. ¿qué día es hoy?
-    - HORA: ej. ¿puedes decirme la hora?
-    - TIEMPO: ej. ¿qué prevision hay para mañana?
+    - DIA: ej. ¿Qué día es hoy?
+    - HORA: ej. ¿Puedes decirme la hora?
+    - TIEMPO: ej. ¿Qué prevision hay para mañana?
     
     
-    DOM = BUSCAR (buscar a google informació o imatges i ubicacions al maps)
+    FAM = BUSCAR (buscar a google informació o imatges i ubicacions al maps)
     
     - BUSCAR IMAGEN: ej. ¿Me puedes enseñar fotos de Francia?
-    - BUSCAR LOCALIZACION: ej. ¿dónde está Barcelona?
-    - BUSCAR: ej. quiero saber cuál es la capital de Italia
+    - BUSCAR LOCALIZACION: ej. ¿Dónde está Barcelona?
+    - BUSCAR: ej. Quiero saber cuál es la capital de Italia
     
     
-    DOM = LLAMAR (trucar a un familiar/amic) # working on
+    FAM = LLAMAR (trucar a un familiar/amic)
+    - LLAMAR: ej. quiero llamar a mi hijo 
     
-    DOM = AGENDA (controlar agenda, events, medicaments, horaris) # working on
+    
+    FAM = CUIDADORES (informació rellevant del cuidador)
+    - NOMBRE CUIDADOR: ej. ¿Cómo se llama el cuidador?
+    - HORA CUIDADOR: ej. ¿A qué hora llega el cuidador hoy?
+    - DIA CUIDADOR: ej. ¿Qué días viene el cuidador? o ¿Viene hoy el cuidador?
+    
+    
+    FAM = DESPERTADOR (té un despertador, pots posar-lo/canviar-lo, activar-lo o desactivar-lo)
+    - PONER ALARMA: ej. Quiero poner una alarma a las 8 de la mañana, por favor.
+    - ACTIVAR ALARMA: ej. ¿Puedes activar la alarma?
+    - DESACTIVAR ALARMA: ej. Quiero desactivar la alarma.
 
+    FAM = RECORDATORIOS (recorda a quines hores t'has de prendre algun medicament o tens algun event)
+    - MEDICAMENTOS: ej. ¿A qué hora tengo que tomarme el ibuprofeno?
+    - EVENTOS: ej. ¿Qué día tengo médico?
     
-
-**TODO**
-- more intent functions and their responses/answers
-- clarification, confirmation, rejection, simple grounding
+ 
