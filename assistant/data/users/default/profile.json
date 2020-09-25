@@ -1,0 +1,78 @@
+{
+    "user_id": "",
+    "name": "Oriol",
+    "surname": "",
+    "age": "",
+    "contacts_list": [
+        ["emergencias", "", "emergencia", "112"],
+        ["suara", "", "companyia", "100"], ["laif", "live", "companyia", "101"],
+        ["Oriol Aranda Llorens", "", "hijo", "937 144 074"],
+        ["Gerard Marsol", "", "amigo", "987 908 239"],
+        ["Marc Salazar", "", "hijo", "420 420 420"],
+        ["Marc Tresserres", "", "amigo", "123 456 789"]
+    ],
+    "welcome": true,
+    "gender": "",
+    "gender_bot": "",
+    "senior_treatment": false,
+    "language_bot": "es",
+    "books": {
+        "read": [], "actual": {"title": "la casada infiel", "time": 115035}
+    },
+    "riddles": {"read": [], "actual": -1},
+    "jokes": {"read": [245]},
+    "games": {
+        "memory": [
+            "león", "jirafa", "tigre", "elefante", "hipopótamo", "gorila",
+            "mono", "tortuga", "serpiente", "araña", "cebra", "cocodrilo",
+            "rinoceronte", "canguro", "gato", "perro", "ciervo", "escorpión",
+            "rana", "koala", "zorro", "pingüino", "tiburón", "delfín", "ballena"
+        ]
+    },
+    "alarm": {"local": "", "activa": false},
+    "pills": {
+        "schedule": {
+            "0": {
+                "0": [[1, "10:30"]], "2": [[1, "17:00"]], "1": [[1, "18:00"]]
+            },
+            "1": {"2": [[1, "17:30"]], "0": [[2, "18:00"]]},
+            "2": {"2": [[1, "17:30"]], "0": [[2, "18:00"]]},
+            "3": {"2": [[1, "19:50"]]},
+            "4": {},
+            "5": {},
+            "6": {}
+        },
+        "pills_id": {
+            "0": ["Aspirina", "roja", ["0", "1", "2"]],
+            "1": ["Simvastatina", "azul", ["0"]],
+            "2": ["Ramipril", "verde", ["0", "1", "2", "3"]]
+        }
+    },
+    "events": {
+        "info": {
+            "0": [
+                "médico", "revisión", "revisión médica", "hospital",
+                "ambulatorio", "visita al médico"
+            ],
+            "1": ["peluquería", "pelu", "barbería", "peluquero"],
+            "2": ["cine", "cinema", "película"]
+        },
+        "schedule": [
+            ["0", "Hospital Taulí", 20, 8, 2020, "10:50"],
+            ["1", "Perruqueria Paqui", 25, 8, 2020, "13:00"]
+        ]
+    },
+    "carers": {
+        "names": {"0": "Marc", "1": "Sergio"},
+        "days": {"0": ["0", "1", "2", "3", "4", "5", "6"], "1": ["0"]},
+        "schedule": {
+            "0": {"0": ["10:00", "17:00"], "1": ["18:00", "20:00"]},
+            "1": {"0": ["10:00", "17:00"]},
+            "2": {"0": ["10:00", "13:00"]},
+            "3": {"0": ["10:00", "17:00"]},
+            "4": {"0": ["10:00", "17:00"]},
+            "5": {"0": ["10:00", "17:00"]},
+            "6": {"0": ["10:00", "17:00"]}
+        }
+    }
+}

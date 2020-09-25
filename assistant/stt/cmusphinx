@@ -1,0 +1,2 @@
+La carpeta conté els models de català, castellà i anglès que són necessaris per a la llibreria SpeechRecognition. S'han de situar a
+env/lib/python3.6/site-packages/speech_recognition/pocketsphinx-data

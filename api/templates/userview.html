@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geriatric Assistant</title>
+</head>
+<body>
+    <h1 id="title">Geriatric Assistant</h1>
+    <div id="input_elements">
+        <input id="in" class="boxes">
+        <button id="sub" class="boxes">Submit</button>
+        <select id="lang" class="boxes">
+            <option value="es" selected>es</option>
+            <option value="ca">ca</option>
+            <option value="en">en</option>
+        </select>
+        <button id="rec" class="boxes">Hold to record</button>
+    </div>
+    <div id="answer_elements">
+        <div>
+            <p class="answer_label">ANSWER:</p>
+            <p class="answer_resp" id="text_answer"></p>
+        </div>
+        <div>
+            <p class="answer_label">NEW FRAME:</p>
+            <p class="answer_resp" id="new_frame"></p>
+        </div>
+        <audio id="audio_player" controls="controls"> <source src="" type="audio/mp3" /> </audio>
+    </div>
+
+</body>
+
+<style type="text/css">
+    .boxes {
+        display: inline-block;
+        height:40px;
+        border-radius: 4px;
+        box-sizing: border-box;
+        outline: none;
+        font-family: 'Ubuntu',serif;
+        font-size: 16px;
+    }
+    .boxes::-moz-focus-inner {
+        border:0;
+    }
+    #sub, #rec, #lang {
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    #in, #sub {
+        background-color: lightcyan;
+        border: 2px solid #99dbdc;
+    }
+    #in {
+        width: 550px;
+        padding-left: 8px;
+        font-style: italic;
+        transition: 0.5s;
+    }
+    #in:focus, #sub:hover {
+        background-color: #d3fafa;
+        border-color: darkcyan;
+    }
+    #rec {
+        background-color: #ffb3b0;
+        border: 2px solid #be6363;
+    }
+    #rec:hover {
+        background-color: #fdaaa6;
+        border-color: darkred;
+    }
+    #rec:active {
+        background-color: red;
+    }
+    #lang {
+        width: 56px;
+        padding-left: 5px;
+        background-color: #cffece;
+        background-image: url(../static/arrow_down.png);
+        background-repeat: no-repeat;
+        background-position: 90% center;
+        border: 2px solid #a2d688;
+        transition: 0.5s;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+    #lang:hover {
+        background-color: #c6fac5;
+        border-color: forestgreen;
+    }
+    #input_elements, #answer_elements{
+        margin: 10px;
+    }
+
+    #answer_elements p{
+        display: inline-block;
+    }
+    .answer_label {
+        font-family: 'Ubuntu',serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .answer_resp {
+        padding-left: 10px;
+        font-style: normal;
+        font-size: 14px;
+    }
+    #title {
+        font-family: 'Ubuntu',serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 40px;
+        margin-left: 10px;
+    }
+    #audio_player {
+        margin-top: 10px;
+        outline: none;
+    }
+
+</style>
+
+<script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+
+<script>
+    let stream, recorder;
+    let available = true;
+    const subButton = document.getElementById('sub');
+    const inputElem = document.getElementById('in');
+    const recButton = document.getElementById('rec');
+    const newFrameElem = document.getElementById("new_frame");
+    const answerElem = document.getElementById("text_answer");
+    const selectElem = document.getElementById("lang")
+    const audioPlayer = document.getElementById("audio_player")
+
+    subButton.addEventListener('click', submitText);
+    inputElem.addEventListener('keyup', event => {
+        if (available && event.key === 'Enter') {
+            submitText()
+        }
+    });
+    recButton.addEventListener('mousedown', startRecording);
+    recButton.addEventListener('mouseup', stopRecording);
+    recButton.disabled = true;
+    requestRecordingPermission();
+    let frames = [{"DOM": "START"}]
+
+    function startRecording() {
+        recorder.startRecording();
+    }
+
+    async function stopRecording() {
+        await recorder.stopRecording();
+        let bodyContent = new FormData();
+        let info = {
+            frame: frames.pop(),
+            lang: selectElem.value,
+            user: "default"
+        };
+        await recorder.getBlob().then(function (blob) {
+            bodyContent.append("info", JSON.stringify(info));
+            bodyContent.append("audio", blob);
+        });
+
+        let response = await fetch('/s2t', {
+            method: 'POST',
+            body: bodyContent
+        });
+
+        let result = await response.formData();
+
+        if (response.ok) {
+            //status 200
+
+            let new_frame = JSON.parse(result.get('new_frame'));
+            let text_answer = result.get('text_answer');
+            let audio_answer = result.get('audio_answer');
+
+            if (new_frame.DOM === "EXIT") {//conversation ends
+                subButton.disabled = true;
+                available = false;
+            } else {
+                frames.push(new_frame);
+            }
+            newFrameElem.textContent = JSON.stringify(new_frame);
+            if (text_answer) answerElem.textContent = text_answer;
+            let blobUrl = URL.createObjectURL(audio_answer);
+            audioPlayer.setAttribute('src', blobUrl);
+            audioPlayer.play();
+        } else {
+            //status not 200
+            console.log("Something went wrong");
+        }
+
+    }
+
+    async function submitText() {
+        let bodyContent = {
+            input_text: inputElem.value,
+            frame: frames.pop(),
+            lang: selectElem.value,
+            user: "default"
+        };
+
+        let response = await fetch('/assistant_text', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(bodyContent)
+        });
+
+        let result = await response.json();
+
+        if (response.ok) {
+            //status 200
+            let new_frame = result.new_frame;
+            let text_answer = result.text_answer;
+            if (new_frame.DOM === "EXIT") {//conversation ends
+                subButton.disabled = true;
+                available = false;
+            } else {
+                frames.push(new_frame)
+            }
+            newFrameElem.textContent = JSON.stringify(new_frame);
+            if (text_answer) answerElem.textContent = text_answer;
+        } else {
+            // status not 200
+            console.log("Something went wrong");
+        }
+
+    }
+
+    async function requestRecordingPermission() {
+        //let varis = navigator.mediaDevices.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+        stream = await navigator.mediaDevices.getUserMedia({video: false, audio: true});
+        recorder = new RecordRTCPromisesHandler(stream, {
+            type: 'audio',
+            mimeType: 'audio/webm', //use audio/webm if possible
+        });
+        recButton.disabled = false;
+    }
+
+</script>
+</html>

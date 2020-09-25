@@ -1,0 +1,427 @@
+{
+  "START": {
+    "despedida": "EXIT",
+    "saludo": "SALUDO",
+    "como_estas": "COMO_ESTAS",
+    "como_llamas": "COMO_LLAMAS",
+    "cuantos_anyos": "CUANTOS_ANYOS",
+    "poner_alarma": "PREGUNTA_ALARMA",
+    "poner_alarma_0": "PREGUNTA_ALARMA",
+    "poner_alarma_1": "PREGUNTA_ALARMA",
+    "cambiar_alarma": "PREGUNTA_ALARMA",
+    "desactivar_alarma": "DESACTIVAR_ALARMA",
+    "activar_alarma": "ACTIVAR_ALARMA",
+    "recordar_pastilla": "RECORDAR_PASTILLA",
+    "estado_salud_mal": "ESTADO_SALUD_MAL",
+    "estado_salud_bien": "ESTADO_SALUD_BIEN",
+    "dia": "DIA",
+    "hora": "HORA",
+    "tiempo": "TIEMPO",
+    "fecha_evento_0": "FECHA_EVENTO_0",
+    "fecha_evento": "FECHA_EVENTO",
+    "llamar": "LLAMAR",
+    "llamar_0": "LLAMAR_0",
+    "preg_entretener": "PREG_ENTRETENER",
+    "contar_adivinanza": "CONTAR_ADIVINANZA_0",
+    "continuar_adivinanza": "CONTINUAR_ADIVINANZA",
+    "contar_cuento": "CONTAR_CUENTO",
+    "contar_cuento_0": "CONTAR_CUENTO_0",
+    "continuar_cuento": "CONTINUAR_CUENTO",
+    "contar_chiste": "CONTAR_CHISTE",
+    "esc_cancion": "ESC_CANCION",
+    "esc_cancion_0": "ESC_CANCION_0",
+    "jugar": "JUGAR",
+    "nombre_cuidador": "NOMBRE_CUIDADOR",
+    "hora_cuidador": "HORA_CUIDADOR",
+    "dia_cuidador": "DIA_CUIDADOR",
+    "buscar_imagen": "BUSCAR_IMAGEN",
+    "buscar_imagen_0": "BUSCAR_IMAGEN_0",
+    "buscar_loc": "BUSCAR_LOC",
+    "buscar_loc_0": "BUSCAR_LOC_0",
+    "buscar": "BUSCAR",
+    "buscar_0": "BUSCAR_0",
+    "nada": "NADA_EXIT",
+    "no_recuerda": "NO_RECUERDA_EXIT",
+    "gracias": "GRACIAS"
+  },
+  "ESTADO_SALUD_MAL": {
+    "si": "LLAMAR_0",
+    "no": "NADA",
+    "llamar": "LLAMAR"
+  },
+  "SALUDO": {
+  },
+  "COMO_ESTAS":{
+    "repetir": "COMO_ESTAS"
+  },
+  "COMO_LLAMAS": {
+    "repetir": "COMO_LLAMAS"
+  },
+  "CUANTOS_ANYOS": {
+    "repetir": "CUANTOS_ANYOS"
+  },
+  "PREG_ENTRETENER": {
+    "repetir": "PREG_ENTRETENER",
+    "nada": "NADA",
+    "no_recuerda": "NO_RECUERDA",
+    "contar_cuento": "CONTAR_CUENTO",
+    "contar_cuento_0": "CONTAR_CUENTO_0",
+    "contar_chiste": "CONTAR_CHISTE",
+    "contar_adivinanza": "CONTAR_ADIVINANZA_0",
+    "esc_cancion": "ESC_CANCION",
+    "esc_cancion_0": "ESC_CANCION_0",
+    "jugar": "JUGAR",
+    "cuento": "CONTAR_CUENTO_0",
+    "cancion": "ESC_CANCION_0",
+    "chiste": "CONTAR_CHISTE",
+    "adivinanza": "CONTAR_ADIVINANZA_0"
+  },
+  "EXISTE_ADIVINANZA": {
+    "repetir": "EXISTE_ADIVINANZA",
+    "si": "CONTINUAR_ADIVINANZA",
+    "no": "CONTAR_ADIVINANZA_NUEVA",
+    "nada": "NADA",
+    "otros": "CONTAR_ADIVINANZA_NUEVA"
+  },
+  "RESOLVER_ADIVINANZA": {
+    "no_recuerda": "DAR_SOLUCION",
+    "repetir_adivinanza": "REPETIR_ADIVINANZA",
+    "solucion_adivinanza": "DAR_SOLUCION",
+    "ayuda_adivinanza": "AYUDA_ADIVINANZA",
+    "respuesta_adivinanza": "EVALUAR_RESPUESTA",
+    "finalizar_adivinanza": "FINALIZAR_ADIVINANZA"
+  },
+  "OTRA_ADIVINANZA": {
+    "si": "CONTAR_ADIVINANZA_NUEVA",
+    "no": "NADA",
+    "nada": "NADA"
+  },
+  "DAR_SOLUCION": {
+    "si": "SOLUCION_BUENA",
+    "no": "SEGUIR_PROBANDO"
+  },
+  "SEGUIR_PROBANDO":{},
+  "AYUDA_ADIVINANZA": {},
+  "SOLUCION_BUENA": {},
+  "EVALUAR_RESPUESTA": {},
+
+  "CONTAR_CUENTO": {},
+  "CONTAR_CUENTO_0": {
+    "repetir": "CONTAR_CUENTO_0",
+    "si": "CONTAR_CUENTO",
+    "no": "LISTA_CUENTOS",
+    "otros": "LISTA_CUENTOS",
+    "nada": "NADA"
+  },
+  "LISTA_CUENTOS": {
+    "nada": "NADA",
+    "continuar_cuento": "CONTINUAR_CUENTO",
+    "contar_cuento": "CONTAR_CUENTO",
+    "que_cuento": "CONTAR_CUENTO"
+  },
+  "NO_CUENTO": {
+    "repetir": "NO_CUENTO",
+    "nada": "NADA",
+    "si": "LISTA_CUENTOS",
+    "no": "START",
+    "contar_cuento": "CONTAR_CUENTO",
+    "contar_cuento_0": "CONTAR_CUENTO_0"
+  },
+  "CONTAR_CHISTE": {},
+  "MAS_CHISTES": {
+    "repetir": "REPETIR_CHISTE",
+    "si": "CONTAR_CHISTE",
+    "no": "NADA",
+    "nada": "NADA",
+    "otros": "CONTAR_CHISTE"
+  },
+  "ESC_CANCION": {},
+  "ESC_CANCION_0": {
+    "repetir": "ESC_CANCION_0",
+    "nada": "NADA",
+    "no_recuerda": "NO_RECUERDA",
+    "esc_cancion": "ESC_CANCION",
+    "que_cancion": "ESC_CANCION"
+  },
+  "BUSCAR": {
+    "repetir": ""
+  },
+  "BUSCAR_0": {
+    "repetir": "BUSCAR_0",
+    "nada": "NADA",
+    "no_recuerda": "NO_RECUERDA",
+    "buscar_imagen_0": "BUSCAR_IMAGEN_0",
+    "buscar_imagen": "BUSCAR_IMAGEN",
+    "buscar_loc_0": "BUSCAR_LOC_0",
+    "buscar_loc": "BUSCAR_LOC",
+    "buscar": "BUSCAR",
+    "que_buscar": "BUSCAR"
+  },
+  "BUSCAR_IMAGEN": {},
+  "BUSCAR_IMAGEN_0": {
+    "repetir": "BUSCAR_IMAGEN_0",
+    "nada": "NADA",
+    "no_recuerda": "NO_RECUERDA",
+    "que_imagen": "BUSCAR_IMAGEN"
+  },
+  "BUSCAR_LOC": {},
+  "BUSCAR_LOC_0": {
+    "repetir": "BUSCAR_LOC_0",
+    "nada": "NADA",
+    "no_recuerda": "NO_RECUERDA",
+    "buscar_loc": "BUSCAR_LOC",
+    "que_loc": "BUSCAR_LOC"
+  },
+  "DIA": {
+    "repetir": "DIA"
+  },
+  "HORA": {
+    "repetir": "HORA"
+  },
+  "TIEMPO": {
+    "repetir": "TIEMPO"
+  },
+  "PLAY_STORY": {
+    "parar": "STOP_STORY",
+    "pausar": "PAUSE_STORY",
+    "bajar_vol": "BAJAR_VOL_STORY",
+    "subir_vol": "SUBIR_VOL_STORY",
+    "cambiar_cuento": "CAMBIAR_CUENTO_0",
+    "contar_cuento": "CAMBIAR_CUENTO",
+    "contar_cuento_0": "CAMBIAR_CUENTO_0"
+  },
+  "PAUSE_STORY": {
+    "parar": "STOP_STORY",
+    "continuar": "PLAY_STORY",
+    "cambiar_cuento": "CAMBIAR_CUENTO_0",
+    "bajar_vol": "BAJAR_VOL_STORY",
+    "subir_vol": "SUBIR_VOL_STORY",
+    "contar_cuento": "CAMBIAR_CUENTO",
+    "contar_cuento_0": "CAMBIAR_CUENTO_0"
+  },
+  "STOP_STORY": {},
+  "BAJAR_VOL_STORY": {
+    "continuar": "PLAY_STORY",
+    "pausar": "PAUSE_STORY",
+    "parar": "STOP_STORY",
+    "cambiar_cuento": "CAMBIAR_CUENTO_0",
+    "bajar_vol": "BAJAR_VOL_STORY",
+    "subir_vol": "SUBIR_VOL_STORY",
+    "mas": "BAJAR_VOL_STORY",
+    "menos": "SUBIR_VOL_STORY",
+    "contar_cuento": "CAMBIAR_CUENTO",
+    "contar_cuento_0": "CAMBIAR_CUENTO_0"
+  },
+  "SUBIR_VOL_STORY": {
+    "continuar": "PLAY_STORY",
+    "pausar": "PAUSE_STORY",
+    "parar": "STOP_STORY",
+    "cambiar_cuento": "CAMBIAR_CUENTO_0",
+    "bajar_vol": "BAJAR_VOL_STORY",
+    "subir_vol": "SUBIR_VOL_STORY",
+    "mas": "SUBIR_VOL_STORY",
+    "menos": "BAJAR_VOL_STORY",
+    "contar_cuento": "CAMBIAR_CUENTO",
+    "contar_cuento_0": "CAMBIAR_CUENTO_0"
+  },
+  "PLAY_MUSIC": {
+    "parar": "STOP_MUSIC",
+    "pausar": "PAUSE_MUSIC",
+    "bajar_vol": "BAJAR_VOL_MUSIC",
+    "subir_vol": "SUBIR_VOL_MUSIC",
+    "cambiar_cancion": "CAMBIAR_CANCION_0",
+    "esc_cancion": "CAMBIAR_CANCION",
+    "esc_cancion_0": "CAMBIAR_CANCION_0"
+  },
+  "PAUSE_MUSIC": {
+    "parar": "STOP_MUSIC",
+    "continuar": "PLAY_MUSIC",
+    "cambiar_cancion": "CAMBIAR_CANCION_0",
+    "bajar_vol": "BAJAR_VOL_MUSIC",
+    "subir_vol": "SUBIR_VOL_MUSIC",
+    "esc_cancion": "CAMBIAR_CANCION",
+    "esc_cancion_0": "CAMBIAR_CANCION_0"
+  },
+  "STOP_MUSIC": {},
+  "BAJAR_VOL_MUSIC": {
+    "continuar": "PLAY_MUSIC",
+    "pausar": "PAUSE_MUSIC",
+    "parar": "STOP_MUSIC",
+    "cambiar_cancion": "CAMBIAR_CANCION_0",
+    "bajar_vol": "BAJAR_VOL_MUSIC",
+    "subir_vol": "SUBIR_VOL_MUSIC",
+    "mas": "BAJAR_VOL_MUSIC",
+    "menos": "SUBIR_VOL_MUSIC",
+    "esc_cancion": "CAMBIAR_CANCION",
+    "esc_cancion_0": "CAMBIAR_CANCION_0"
+  },
+  "SUBIR_VOL_MUSIC": {
+    "continuar": "PLAY_MUSIC",
+    "pausar": "PAUSE_MUSIC",
+    "parar": "STOP_MUSIC",
+    "cambiar_cancion": "CAMBIAR_CANCION_0",
+    "bajar_vol": "BAJAR_VOL_MUSIC",
+    "subir_vol": "SUBIR_VOL_MUSIC",
+    "mas": "SUBIR_VOL_MUSIC",
+    "menos": "BAJAR_VOL_MUSIC",
+    "esc_cancion": "CAMBIAR_CANCION",
+    "esc_cancion_0": "CAMBIAR_CANCION_0"
+  },
+  "LLAMAR": {},
+  "LLAMAR_0": {
+    "repetir": "LLAMAR_0",
+    "nadie": "NADA",
+    "nada": "NADA",
+    "llamar": "LLAMAR",
+    "quien_llamar": "LLAMAR"
+  },
+  "NO_CONTACTO": {
+    "nadie": "NADA",
+    "nada": "NADA",
+    "llamar": "LLAMAR",
+    "quien_llamar": "LLAMAR"
+  },
+  "ESCOGER_CONTACTO": {
+    "nada": "NADA",
+    "nadie": "NADA",
+    "llamar": "LLAMAR",
+    "quien_llamar": "LLAMAR"
+  },
+  "LLAMAR_SEGURO": {
+    "si": "LLAMAR_DEF",
+    "no": "NO_ENTENDER_CONTACTO",
+    "nada": "NADA",
+    "no_recuerda": "NO_RECUERDA"
+  },
+  "PONER_ALARMA_0": {
+    "poner_alarma_0": "PONER_ALARMA_0",
+    "poner_alarma": "PONER_ALARMA",
+    "que_hora": "PONER_ALARMA",
+    "que_hora_1": "PONER_ALARMA_1"
+  },
+  "PONER_ALARMA_1": {
+    "nada": "NADA",
+    "no_recuerda": "NO_RECUERDA",
+    "que_horario": "PONER_ALARMA"
+  },
+  "PREGUNTA_ALARMA": {
+    "si": "PONER_ALARMA",
+    "no": "NADA",
+    "nada": "NADA",
+    "no_recuerda": "NO_RECUERDA",
+    "cambiar_alarma": "PONER_ALARMA",
+    "activar_alarma": "ACTIVO_ALARMA"
+  },
+  "PREG_ALARMA_0": {
+    "si": "PONER_ALARMA_0",
+    "no": "NADA",
+    "nada": "NADA",
+    "no_recuerda": "NO_RECUERDA",
+    "cambiar_alarma": "PONER_ALARMA_0",
+    "activar_alarma": "ACTIVO_ALARMA"
+  },
+  "PREG_ALARMA_1": {
+    "si": "PONER_ALARMA_1",
+    "no": "NADA",
+    "nada": "NADA",
+    "no_recuerda": "NO_RECUERDA",
+    "cambiar_alarma": "PONER_ALARMA_1",
+    "activar_alarma": "ACTIVO_ALARMA"
+  },
+  "DESACTIVAR_ALARMA": {
+    "si": "DESACTIVO_ALARMA",
+    "no": "NADA"
+  },
+  "ACTIVAR_ALARMA": {
+    "si": "ACTIVO_ALARMA",
+    "no": "NADA"
+  },
+  "PREG_NOMBRE": {
+    "nombre_0": "PREG_NOMBRE",
+    "nombre_1": "APELLIDO",
+    "nombre": "REP_NOMBRE"
+  },
+  "APELLIDO": {
+    "apellido_0": "APELLIDO",
+    "apellido": "REP_NOMBRE"
+  },
+  "REP_NOMBRE": {
+    "si": "ANYOS",
+    "no": "NOMBRE"
+  },
+  "NOMBRE": {
+    "solo_nombre_0": "NOMBRE",
+    "solo_nombre": "APELLIDO"
+  },
+  "ANYOS": {
+    "anyos": "REP_ANYOS",
+    "anyos_0": "ANYOS"
+  },
+  "REP_ANYOS": {
+    "si": "SEXO",
+    "no": "ANYOS",
+    "anyos": "REP_ANYOS",
+    "anyos_0": "ANYOS"
+  },
+  "SEXO": {
+    "sexo": "REP_SEXO",
+    "sexo_0": "SEXO"
+  },
+  "REP_SEXO": {
+    "si": "SEXO_BOT",
+    "no": "SEXO"
+  },
+  "SEXO_BOT": {
+    "sexo_bot": "TRATO",
+    "sexo_bot_0": "SEXO_BOT"
+  },
+  "TRATO": {
+    "trato": "LENGUA",
+    "trato_0": "TRATO"
+  },
+  "LENGUA": {
+    "lengua": "PRESENTACION",
+    "lengua_0": "LENGUA"
+  },
+  "START_1": {
+    "urgente": "SALUDO",
+    "no": "PREG_INFO_USUARIO",
+    "pregunta": "PREG_INFO_USUARIO",
+    "nada": "PREG_INFO_USUARIO",
+    "estado_salud_mal": "ESTADO_SALUD_MAL"
+
+  },
+  "PREG_INFO_USUARIO": {
+    "si": "RESPUESTA_INFO_USUARIO_SI",
+    "no": "RESPUESTA_INFO_USUARIO_NO"
+  },
+  "START_0": {
+    "urgente": "SALUDO",
+    "no": "PREG_ESTADO_SALUD",
+    "nada": "PREG_ESTADO_SALUD",
+    "pregunta": "PREG_ESTADO_SALUD",
+    "estado_salud_mal": "ESTADO_SALUD_MAL"
+  },
+  "FECHA_EVENTO_0": {
+    "que_evento": "FECHA_EVENTO",
+    "no_recuerda": "NO_RECUERDA",
+    "nada": "NADA"
+  },
+  "JUGAR": {
+    "repetir": ""
+  },
+  "RESOLVER_NIVEL": {
+    "repetir": "REPETIR_NIVEL",
+    "fin_juego": "FINALIZAR_JUEGO",
+    "respuesta": "SIGUIENTE_NIVEL"
+
+  },
+  "FINALIZAR_JUEGO": {
+    "si": "FINALIZAR_JUEGO_DEF",
+    "no": "RESOLVER_NIVEL",
+    "nada": "RESOLVER_NIVEL"
+  },
+  "PREG_DEVELOP": {
+    "qualificacio": "RESPOSTA_DEVELOP"
+  }
+}

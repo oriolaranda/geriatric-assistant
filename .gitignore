@@ -1,0 +1,7 @@
+/.idea/
+/env/
+/assistant/demo/
+/assistant/tts/
+/assistant/__pycache__/
+/assistant/audios/
+/assistant/utilities/__pycache__/
